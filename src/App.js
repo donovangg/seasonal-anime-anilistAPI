@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import Header from "./components/Header";
+import Card from "./components/Card";
+import styled from "styled-components";
+import TrendingContainer from "./components/TrendingContainer";
+import WinterContainer from "./components/WinterContainer";
+import SpringContainer from "./components/SpringContainer";
+import SummerContainer from "./components/SummerContainer";
+import { Link } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div>
+        <TrendingContainer />
+        <WinterContainer />
+        <SpringContainer />
+        <SummerContainer />
+      </div>
     </div>
   );
 }
