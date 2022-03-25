@@ -2,11 +2,13 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Card from "./Card";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const AnimeWrapper = styled.div`
   display: flex;
   overflow-x: scroll;
   gap: 1rem;
+  padding: 1rem;
 `;
 
 export default function WinterContainer() {
@@ -83,12 +85,14 @@ export default function WinterContainer() {
       <h2>Winter</h2>
       <AnimeWrapper>
         {winterAnime.map((ani) => (
-          <Card
-            title={ani.title.english}
-            imgSrc={ani.coverImage.extraLarge}
-            genres={ani.genres}
-            key={ani.id}
-          />
+          <Link key={ani.id} to={`/anime/${ani.id}`}>
+            <Card
+              title={ani.title.english}
+              imgSrc={ani.coverImage.extraLarge}
+              genres={ani.genres}
+              key={ani.id}
+            />
+          </Link>
         ))}
       </AnimeWrapper>
     </>

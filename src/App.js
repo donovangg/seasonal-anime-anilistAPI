@@ -13,6 +13,7 @@ function App() {
     <div className="App">
       <Header />
       <div>
+        <p>Trending:</p>
         <TrendingContainer />
         <WinterContainer />
         <SpringContainer />

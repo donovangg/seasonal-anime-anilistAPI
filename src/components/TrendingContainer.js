@@ -8,6 +8,11 @@ const AnimeWrapper = styled.div`
   display: flex;
   overflow-x: scroll;
   gap: 1rem;
+  padding: 1rem;
+`;
+
+const CardLink = styled(Link)`
+  position: relative;
 `;
 
 export default function TrendingContainer() {
@@ -82,15 +87,17 @@ export default function TrendingContainer() {
 
   return (
     <>
-      <h2>Summer</h2>
+      <h2>Trending</h2>
       <AnimeWrapper>
         {topAnime.map((ani) => (
-          <Card
-            title={ani.title.english}
-            imgSrc={ani.coverImage.extraLarge}
-            genres={ani.genres}
-            key={ani.id}
-          />
+          <CardLink key={ani.id} to={`/anime/${ani.id}`}>
+            <Card
+              title={ani.title.english}
+              imgSrc={ani.coverImage.extraLarge}
+              genres={ani.genres}
+              key={ani.id}
+            />
+          </CardLink>
         ))}
       </AnimeWrapper>
     </>
