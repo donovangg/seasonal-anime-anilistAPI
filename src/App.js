@@ -8,17 +8,25 @@ import SpringContainer from "./components/SpringContainer";
 import SummerContainer from "./components/SummerContainer";
 import { Link } from "react-router-dom";
 
+const AnimeWrapper = styled.div`
+  width: 95%;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+`;
+
 function App() {
   return (
     <div className="App">
       <Header />
-      <div>
-        <p>Trending:</p>
+      <AnimeWrapper>
         <TrendingContainer />
         <WinterContainer />
         <SpringContainer />
         <SummerContainer />
-      </div>
+      </AnimeWrapper>
     </div>
   );
 }

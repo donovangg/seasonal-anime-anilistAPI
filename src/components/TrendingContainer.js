@@ -8,7 +8,7 @@ const AnimeWrapper = styled.div`
   display: flex;
   overflow-x: scroll;
   gap: 1rem;
-  padding: 1rem;
+  padding: 1rem 0;
 `;
 
 const CardLink = styled(Link)`

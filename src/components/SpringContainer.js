@@ -2,11 +2,17 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Card from "./Card";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const AnimeWrapper = styled.div`
   display: flex;
   overflow-x: scroll;
   gap: 1rem;
+  padding: 1rem 0;
+`;
+
+const CardLink = styled(Link)`
+  position: relative;
 `;
 
 export default function SpringContainer() {
@@ -82,12 +88,14 @@ export default function SpringContainer() {
       <h2>Spring</h2>
       <AnimeWrapper>
         {springAnime.map((ani) => (
-          <Card
-            title={ani.title.english}
-            imgSrc={ani.coverImage.extraLarge}
-            genres={ani.genres}
-            key={ani.id}
-          />
+          <CardLink key={ani.id} to={`/anime/${ani.id}`}>
+            <Card
+              title={ani.title.english}
+              imgSrc={ani.coverImage.extraLarge}
+              genres={ani.genres}
+              key={ani.id}
+            />
+          </CardLink>
         ))}
       </AnimeWrapper>
     </>
