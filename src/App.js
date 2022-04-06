@@ -9,12 +9,12 @@ import SummerContainer from "./components/SummerContainer";
 import { Link } from "react-router-dom";
 
 const AnimeWrapper = styled.div`
-  width: 95%;
-  background-color: red;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
+  background-color: #fff;
 `;
 
 function App() {
