@@ -17,6 +17,14 @@ export default function Details() {
         english
         native
       }
+      description
+      genres
+      streamingEpisodes {
+        title
+        thumbnail
+        url
+        site
+      }
       coverImage {
         extraLarge
         large
