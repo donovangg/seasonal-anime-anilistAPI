@@ -8,19 +8,25 @@ const HeaderWrapper = styled.div`
   background-size: cover;
   background-position: center;
   position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  overflow-x: hidden;
 `;
 
 const HeaderOverlay = styled.div`
   height: 80vh;
   width: 100vw;
-  background-color: aqua;
+  background-color: rgba(0, 62, 119, 0.69);
   top: 0;
   left: 0;
-  opacity: 0.45;
   position: absolute;
+  z-index: 1;
 `;
 
 const HeaderContent = styled.div`
+  z-index: 3;
+  position: relative;
   display: grid;
   place-items: center;
 `;
