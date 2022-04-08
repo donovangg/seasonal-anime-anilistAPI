@@ -3,11 +3,13 @@ import styled from "styled-components";
 
 const CardWrapper = styled.div`
   min-width: 15rem;
-  border: 2px solid red;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 `;
 
 const CardHeader = styled.div`
@@ -15,7 +17,6 @@ const CardHeader = styled.div`
 `;
 
 const CardImageWrapper = styled.div`
-  border: 2px solid green;
   display: relative;
   width: 100%;
   height: 100%;

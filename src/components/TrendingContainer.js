@@ -22,9 +22,9 @@ const AnimeWrapper = styled.div`
       inset -2px -2px 2px rgba(0, 0, 0, 0.25);
   }
 
-  &::-webkit-scrollbar-track {
-    background: #003e77;
-  }
+  // &::-webkit-scrollbar-track {
+  //   background: #003e77;
+  // }
 `;
 
 const CardLink = styled(Link)`
