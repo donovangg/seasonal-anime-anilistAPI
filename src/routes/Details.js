@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { marked } from "marked";
+import styled from "styled-components";
+
+const Desc = styled.div`
+  font-size: 1.15rem;
+  line-height: 2;
+  letter-spacing: 0.25px;
+`;
 
 export default function Details() {
   const [anime, setAnime] = useState("");
@@ -67,7 +75,7 @@ export default function Details() {
     setTitle(data.data.Media.title.english);
     setImgSrc(data.data.Media.coverImage.large);
     setBannerSrc(data.data.Media.bannerImage);
-    setDesc(data.data.Media.description);
+    setDesc(marked(data.data.Media.description));
 
     console.log(data);
     setLoading(false);
@@ -86,7 +94,7 @@ export default function Details() {
       ) : (
         <>
           <h2>Details page for {anime.id}</h2>
-          <p>{desc}</p>
+          <Desc dangerouslySetInnerHTML={{ __html: desc }} />
           <img src={bannerSrc} />
           <h2>{title}</h2>
           <img src={imgSrc} />
