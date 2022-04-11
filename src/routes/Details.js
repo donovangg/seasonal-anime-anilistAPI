@@ -9,6 +9,45 @@ const Desc = styled.div`
   letter-spacing: 0.25px;
 `;
 
+const BannerImageWrapper = styled.div`
+  position: relative;
+  z-index: 2;
+`;
+
+const BannerOverlay = styled.div`
+  background-color: rgba(0, 62, 119, 0.8);
+  opacity: 0.9;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+`;
+
+const BannerImage = styled.img`
+  height: auto;
+  width: 100%;
+  display: block;
+`;
+
+const AnimeInfoWrapper = styled.div`
+  display: flex;
+  border: 2px solid red;
+  margin: -2rem auto;
+  // justify-content: center;
+  // align-items: center;
+  // margin: 0 auto;
+  // z-index: 12;
+  // position: fixed;
+  // background-color: #fff;
+  width: 90vw;
+`;
+
+const AnimeTitleWrapper = styled.div``;
+
+const AnimeDescWrapper = styled.div``;
+
 export default function Details() {
   const [anime, setAnime] = useState("");
   const [title, setTitle] = useState("");
@@ -93,11 +132,19 @@ export default function Details() {
         </div>
       ) : (
         <>
-          <h2>Details page for {anime.id}</h2>
-          <Desc dangerouslySetInnerHTML={{ __html: desc }} />
-          <img src={bannerSrc} />
-          <h2>{title}</h2>
-          <img src={imgSrc} />
+          <BannerImageWrapper>
+            <BannerImage src={bannerSrc} />
+            <BannerOverlay />
+          </BannerImageWrapper>
+          <AnimeInfoWrapper>
+            <AnimeTitleWrapper>
+              <h2>{title}</h2>
+              <img src={imgSrc} />
+            </AnimeTitleWrapper>
+            <AnimeDescWrapper>
+              <Desc dangerouslySetInnerHTML={{ __html: desc }} />
+            </AnimeDescWrapper>
+          </AnimeInfoWrapper>
         </>
       )}
     </div>
