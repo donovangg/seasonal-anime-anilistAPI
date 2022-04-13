@@ -31,28 +31,40 @@ const BannerImage = styled.img`
   display: block;
 `;
 
-const AnimeInfoWrapper = styled.div`
+const AnimeInfoWrapper = styled.section`
   display: flex;
-  border: 2px solid red;
-  margin: -2rem auto;
-  // justify-content: center;
-  // align-items: center;
-  // margin: 0 auto;
-  // z-index: 12;
-  // position: fixed;
-  // background-color: #fff;
-  width: 90vw;
+  position: relative;
+  padding-bottom: 15rem;
 `;
 
-const AnimeTitleWrapper = styled.div``;
+const AnimeInfo = styled.div`
+  border-radius: 10px;
+  width: 90%;
+  margin: 0 auto;
+  background-color: #fff;
+  position: relative;
+  z-index: 12;
+  display: flex;
+`;
 
-const AnimeDescWrapper = styled.div``;
+const AnimeTitleWrapper = styled.div`
+  flex: 1;
+  display: grid;
+  place-items: center;
+  position: relative;
+  margin-top: -15rem;
+`;
+
+const AnimeDescWrapper = styled.div`
+  flex: 3;
+`;
 
 export default function Details() {
   const [anime, setAnime] = useState("");
   const [title, setTitle] = useState("");
   const [imgSrc, setImgSrc] = useState("");
   const [desc, setDesc] = useState("");
+  const [characters, setCharacters] = useState([]);
   const [bannerSrc, setBannerSrc] = useState("");
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
@@ -68,12 +80,55 @@ export default function Details() {
       }
       description
       genres
+      season
+      seasonYear
+         isLicensed
       streamingEpisodes {
         title
         thumbnail
         url
         site
       }
+      staff {
+        edges {
+          id
+          role
+        }
+      }
+			characters {
+			  edges {
+			    id
+          voiceActors(language: JAPANESE, sort:ROLE) {
+            id
+            name {
+              first
+              middle
+              last
+              full
+              native
+              userPreferred
+            }
+            image {
+              large
+              medium
+            }
+          }
+        }
+        nodes {
+          name {
+            first
+            middle
+            last
+            full
+            native
+            userPreferred
+          }
+          image {
+            large
+            medium
+          }
+        }
+			}
       coverImage {
         extraLarge
         large
@@ -114,6 +169,7 @@ export default function Details() {
     setTitle(data.data.Media.title.english);
     setImgSrc(data.data.Media.coverImage.large);
     setBannerSrc(data.data.Media.bannerImage);
+    setCharacters(data.data.Media.characters.nodes);
     setDesc(marked(data.data.Media.description));
 
     console.log(data);
@@ -137,14 +193,27 @@ export default function Details() {
             <BannerOverlay />
           </BannerImageWrapper>
           <AnimeInfoWrapper>
-            <AnimeTitleWrapper>
-              <h2>{title}</h2>
-              <img src={imgSrc} />
-            </AnimeTitleWrapper>
-            <AnimeDescWrapper>
-              <Desc dangerouslySetInnerHTML={{ __html: desc }} />
-            </AnimeDescWrapper>
+            <AnimeInfo>
+              <AnimeTitleWrapper>
+                <img src={imgSrc} />
+              </AnimeTitleWrapper>
+              <AnimeDescWrapper>
+                <h2>{title}</h2>
+                <Desc dangerouslySetInnerHTML={{ __html: desc }} />
+              </AnimeDescWrapper>
+            </AnimeInfo>
           </AnimeInfoWrapper>
+          <div>
+            character container
+            {characters.map((character) => (
+              <div>
+                <div>
+                  {character.name.last} {character.name.first}
+                </div>
+                <img src={character.image.medium} />
+              </div>
+            ))}
+          </div>
         </>
       )}
     </div>
