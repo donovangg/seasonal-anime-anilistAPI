@@ -1,3 +1,14 @@
+# Anime Seasons
+
+This project started out as just a website to check when anime is airing during which season. Luckily nowadays things like Anilist and MAL
+are very good at these types of things so this ended up being my own practice on creating my own.
+
+I'm using AniList's amazing GraphQL API to get all the data. There is a bit of a learning curve but there is a lot available.
+
+Todo:
+--Finish the project lol
+--Add Seiyuu
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
