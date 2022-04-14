@@ -65,6 +65,7 @@ export default function Details() {
   const [imgSrc, setImgSrc] = useState("");
   const [desc, setDesc] = useState("");
   const [characters, setCharacters] = useState([]);
+  const [seiyuu, setSeiyuu] = useState("");
   const [bannerSrc, setBannerSrc] = useState("");
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
@@ -89,15 +90,24 @@ export default function Details() {
         url
         site
       }
-      staff {
-        edges {
-          id
+characters {
+ edges {
+          node {
+            name {
+              first
+              middle
+              last
+              full
+              native
+              userPreferred
+            }
+            image {
+              large
+              medium
+            }
+          }
+   id
           role
-        }
-      }
-			characters {
-			  edges {
-			    id
           voiceActors(language: JAPANESE, sort:ROLE) {
             id
             name {
@@ -114,21 +124,7 @@ export default function Details() {
             }
           }
         }
-        nodes {
-          name {
-            first
-            middle
-            last
-            full
-            native
-            userPreferred
-          }
-          image {
-            large
-            medium
-          }
-        }
-			}
+}
       coverImage {
         extraLarge
         large
@@ -138,6 +134,8 @@ export default function Details() {
       bannerImage
     }
   }
+
+
 `;
 
   //Set ID to useParams ID
@@ -169,7 +167,8 @@ export default function Details() {
     setTitle(data.data.Media.title.english);
     setImgSrc(data.data.Media.coverImage.large);
     setBannerSrc(data.data.Media.bannerImage);
-    setCharacters(data.data.Media.characters.nodes);
+    setCharacters(data.data.Media.characters.edges);
+
     setDesc(marked(data.data.Media.description));
 
     console.log(data);
@@ -206,11 +205,17 @@ export default function Details() {
           <div>
             character container
             {characters.map((character) => (
-              <div>
-                <div>
-                  {character.name.last} {character.name.first}
-                </div>
-                <img src={character.image.medium} />
+              <div key={character.id}>
+                <h2>
+                  {character.node.name.last} {character.node.name.first}
+                </h2>
+                <img src={character.node.image.medium} />
+                {character.voiceActors.map((va) => (
+                  <div>
+                    {" "}
+                    {va.name.last} {va.name.first} <img src={va.image.medium} />
+                  </div>
+                ))}
               </div>
             ))}
           </div>
