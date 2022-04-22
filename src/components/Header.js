@@ -1,6 +1,7 @@
 import React from "react";
-import HeaderImg from "../assets/placeholder-header.jpg";
+import HeaderImg from "../assets/your-name.jpeg";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 
 const HeaderWrapper = styled.div`
   height: 80vh;
@@ -17,7 +18,7 @@ const HeaderWrapper = styled.div`
 const HeaderOverlay = styled.div`
   height: 80vh;
   width: 100vw;
-  background-color: rgba(0, 62, 119, 0.69);
+  background-color: rgba(0, 62, 119, 0.23);
   top: 0;
   left: 0;
   position: absolute;
@@ -31,13 +32,74 @@ const HeaderContent = styled.div`
   place-items: center;
 `;
 
+const HeaderText = styled.h2`
+  color: #fff;
+  font-size: 1.25rem;
+`;
+
+const TitleText = styled.h1`
+  color: #fff;
+  font-size: 2.55rem;
+`;
+
 export default function Header() {
+  const [featured, setFeatured] = useState("");
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+
+  var query = `
+  query ($id: Int) { # Define which variables will be used in the query (id)
+    Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
+      id
+      title {
+        romaji
+        english
+        native
+      }
+      description
+    }
+  }
+`;
+
+  // Define our query variables and values that will be used in the query request
+  var variables = {
+    id: 21519,
+  };
+
+  // Define the config we'll need for our Api request
+  var url = "https://graphql.anilist.co",
+    options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        query: query,
+        variables: variables,
+      }),
+    };
+
+  const fetchFeatured = async () => {
+    const res = await fetch(url, options);
+    const data = await res.json();
+    console.log(data);
+    setFeatured(data.data.Media);
+    setTitle(data.data.Media.title.english);
+    setDesc(data.data.Media.description);
+  };
+
+  useState(() => {
+    fetchFeatured();
+  }, []);
+
   return (
     <HeaderWrapper>
       <HeaderOverlay />
       <HeaderContent>
-        <h1>This is the header</h1>
-        <p>This has like featured stuff and shit</p>
+        <HeaderText>Donovan's Featured</HeaderText>
+        <TitleText>{title}</TitleText>
+        <p>{desc}</p>
       </HeaderContent>
     </HeaderWrapper>
   );
