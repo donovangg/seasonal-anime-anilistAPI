@@ -2,6 +2,7 @@ import React from "react";
 import HeaderImg from "../assets/your-name.jpeg";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
+import { marked } from "marked";
 
 const HeaderWrapper = styled.div`
   height: 80vh;
@@ -40,6 +41,12 @@ const HeaderText = styled.h2`
 const TitleText = styled.h1`
   color: #fff;
   font-size: 2.55rem;
+`;
+
+const Desc = styled.div`
+  font-size: 1.15rem;
+  line-height: 2;
+  letter-spacing: 0.25px;
 `;
 
 export default function Header() {
@@ -99,7 +106,7 @@ export default function Header() {
       <HeaderContent>
         <HeaderText>Donovan's Featured</HeaderText>
         <TitleText>{title}</TitleText>
-        <p>{desc}</p>
+        <Desc dangerouslySetInnerHTML={{ __html: desc }} />
       </HeaderContent>
     </HeaderWrapper>
   );
