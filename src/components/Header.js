@@ -11,8 +11,8 @@ const HeaderWrapper = styled.div`
   background-position: center;
   position: relative;
   z-index: 1;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
   overflow-x: hidden;
 `;
 
@@ -29,24 +29,35 @@ const HeaderOverlay = styled.div`
 const HeaderContent = styled.div`
   z-index: 3;
   position: relative;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid red;
+  width: 50%;
 `;
 
 const HeaderText = styled.h2`
   color: #fff;
-  font-size: 1.25rem;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
 `;
 
 const TitleText = styled.h1`
   color: #fff;
-  font-size: 2.55rem;
+  font-size: 3rem;
 `;
 
 const Desc = styled.div`
   font-size: 1.15rem;
   line-height: 2;
   letter-spacing: 0.25px;
+  color: #fff;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 `;
 
 export default function Header() {
