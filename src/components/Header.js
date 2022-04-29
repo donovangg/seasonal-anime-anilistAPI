@@ -3,6 +3,7 @@ import HeaderImg from "../assets/your-name.jpeg";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { marked } from "marked";
+import { Link } from "react-router-dom";
 
 const HeaderWrapper = styled.div`
   height: 80vh;
@@ -58,6 +59,29 @@ const Desc = styled.div`
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  border: 2px solid red;
+  width: 35%;
+`;
+
+const Button = styled(Link)`
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 0.55rem 1rem;
+  text-decoration: none;
+`;
+
+const ExButton = styled.a`
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 0.55rem 1rem;
+  text-decoration: none;
 `;
 
 export default function Header() {
@@ -118,6 +142,15 @@ export default function Header() {
         <HeaderText>Donovan's Featured</HeaderText>
         <TitleText>{title}</TitleText>
         <Desc dangerouslySetInnerHTML={{ __html: desc }} />
+        <ButtonContainer>
+          <Button to={`/anime/21519`}>Info</Button>
+          <ExButton
+            target="_blank"
+            href="https://github.com/donovangomez/seasonal-anichart/blob/main/pages/summer.js"
+          >
+            Yeet
+          </ExButton>
+        </ButtonContainer>
       </HeaderContent>
     </HeaderWrapper>
   );
