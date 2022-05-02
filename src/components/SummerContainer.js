@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import Card from "./Card";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Header from "./Header";
 
 const AnimeWrapper = styled.div`
   display: flex;
+  position: relative;
   overflow-x: scroll;
   gap: 1rem;
   padding: 1rem 0;
@@ -21,6 +23,16 @@ const AnimeWrapper = styled.div`
     box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, 0.25),
       inset -2px -2px 2px rgba(0, 0, 0, 0.25);
   }
+`;
+
+const HeaderText = styled.h2`
+  font-size: 2rem;
+  position: relative;
+  max-width: 600px;
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
 `;
 
 const CardLink = styled(Link)`
@@ -97,7 +109,7 @@ export default function SummerContainer() {
   }, []);
   return (
     <>
-      <h2>Summer</h2>
+      <HeaderText>Summer</HeaderText>
       <AnimeWrapper>
         {summerAnime.map((ani) => (
           <CardLink key={ani.id} to={`/anime/${ani.id}`}>

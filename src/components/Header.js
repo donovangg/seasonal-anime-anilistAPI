@@ -57,7 +57,7 @@ const Desc = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 `;
 
@@ -72,7 +72,7 @@ const Button = styled(Link)`
   background-color: transparent;
   color: #fff;
   border: 2px solid #fff;
-  padding: 0.55rem 1rem;
+  padding: 0.55rem 2rem;
   text-decoration: none;
 `;
 
@@ -80,7 +80,7 @@ const ExButton = styled.a`
   background-color: transparent;
   color: #fff;
   border: 2px solid #fff;
-  padding: 0.55rem 1rem;
+  padding: 0.55rem 2rem;
   text-decoration: none;
 `;
 

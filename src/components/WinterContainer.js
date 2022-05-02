@@ -8,7 +8,7 @@ const AnimeWrapper = styled.div`
   display: flex;
   overflow-x: scroll;
   gap: 1rem;
-  padding: 1rem 0;
+  padding: 1rem;
 
   &::-webkit-scrollbar {
     width: 10px;
@@ -21,6 +21,20 @@ const AnimeWrapper = styled.div`
     box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, 0.25),
       inset -2px -2px 2px rgba(0, 0, 0, 0.25);
   }
+`;
+
+const HeaderText = styled.h2`
+  font-size: 2rem;
+  position: relative;
+  max-width: 600px;
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+`;
+
+const CardLink = styled(Link)`
+  position: relative;
 `;
 
 export default function WinterContainer() {
@@ -94,17 +108,17 @@ export default function WinterContainer() {
 
   return (
     <>
-      <h2>Winter</h2>
+      <HeaderText>Winter</HeaderText>
       <AnimeWrapper>
         {winterAnime.map((ani) => (
-          <Link key={ani.id} to={`/anime/${ani.id}`}>
+          <CardLink key={ani.id} to={`/anime/${ani.id}`}>
             <Card
               title={ani.title.english}
               imgSrc={ani.coverImage.extraLarge}
               genres={ani.genres}
               key={ani.id}
             />
-          </Link>
+          </CardLink>
         ))}
       </AnimeWrapper>
     </>

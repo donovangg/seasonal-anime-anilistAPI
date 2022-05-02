@@ -27,6 +27,16 @@ const AnimeWrapper = styled.div`
   // }
 `;
 
+const HeaderText = styled.h2`
+  font-size: 2rem;
+  position: relative;
+  max-width: 600px;
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+`;
+
 const CardLink = styled(Link)`
   position: relative;
 `;
@@ -103,7 +113,7 @@ export default function TrendingContainer() {
 
   return (
     <>
-      <h2>Trending</h2>
+      <HeaderText>Trending</HeaderText>
       <AnimeWrapper>
         {topAnime.map((ani) => (
           <CardLink key={ani.id} to={`/anime/${ani.id}`}>
