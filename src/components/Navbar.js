@@ -4,25 +4,44 @@ import { Link } from "react-router-dom";
 
 const Nav = styled.nav`
   height: 5vh;
-  background-color: red;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
   color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
 `;
 
-const NavLeft = styled.div``;
+const NavLeft = styled.div`
+  flex: 1;
+`;
 
-const NavRight = styled.div``;
+const NavRight = styled.div`
+  flex: 1;
+`;
 
-const NavList = styled.ul``;
+const NavList = styled.ul`
+  display: flex;
+`;
 
-const NavItem = styled.li``;
+const NavItem = styled.li`
+  list-style: none;
+`;
 
-const NavLink = styled(Link)``;
+const NavLink = styled(Link)`
+  text-decoration: none;
+  color: #fff;
+`;
 
 export default function Navbar() {
   return (
     <Nav>
       <NavLeft>
-        <span>Logo</span>
+        <NavLink to={`/`}>Home</NavLink>
       </NavLeft>
       <NavRight>
         <NavList>

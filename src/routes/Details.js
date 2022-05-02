@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { marked } from "marked";
 import styled from "styled-components";
+import Navbar from "../components/Navbar";
 
 const Desc = styled.div`
   font-size: 1.15rem;
@@ -188,6 +189,7 @@ characters {
       ) : (
         <>
           <BannerImageWrapper>
+            <Navbar />
             <BannerImage src={bannerSrc} />
             <BannerOverlay />
           </BannerImageWrapper>
