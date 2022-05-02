@@ -1,24 +1,36 @@
 import React from "react";
-import styledComponents from "styled-components";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+const Nav = styled.nav`
+  height: 5vh;
+  background-color: red;
+  color: #fff;
+`;
+
+const NavLeft = styled.div``;
+
+const NavRight = styled.div``;
+
+const NavList = styled.ul``;
+
+const NavItem = styled.li``;
+
+const NavLink = styled(Link)``;
 
 export default function Navbar() {
   return (
-    <nav>
-      <span>Logo</span>
-      <ul>
-        <li>
-          <a href="#">Spring</a>
-        </li>
-        <li>
-          <a href="#">Summer</a>
-        </li>
-        <li>
-          <a href="#">Fall</a>
-        </li>
-        <li>
-          <a href="#">Winter</a>
-        </li>
-      </ul>
-    </nav>
+    <Nav>
+      <NavLeft>
+        <span>Logo</span>
+      </NavLeft>
+      <NavRight>
+        <NavList>
+          <NavItem>
+            <NavLink to={`/Spring`}>Spring</NavLink>
+          </NavItem>
+        </NavList>
+      </NavRight>
+    </Nav>
   );
 }

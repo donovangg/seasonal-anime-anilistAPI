@@ -7,6 +7,7 @@ import WinterContainer from "./components/WinterContainer";
 import SpringContainer from "./components/SpringContainer";
 import SummerContainer from "./components/SummerContainer";
 import { Link } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
 const AnimeWrapper = styled.div`
   width: 80%;
@@ -20,6 +21,7 @@ const AnimeWrapper = styled.div`
 function App() {
   return (
     <div className="App">
+      <Navbar />
       <Header />
       <AnimeWrapper>
         <TrendingContainer />

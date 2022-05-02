@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import Details from "./routes/Details";
+import Spring from "./routes/Spring";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -12,6 +13,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="anime/:id" element={<Details />} />
+        <Route path="/spring" element={<Spring />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
