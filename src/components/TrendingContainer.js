@@ -31,7 +31,7 @@ const HeaderText = styled.h2`
   font-size: 2rem;
   position: relative;
   max-width: 600px;
-  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  background-image: linear-gradient(#007bef, #8964cd);
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;

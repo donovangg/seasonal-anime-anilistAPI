@@ -32,8 +32,13 @@ const HeaderContent = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  border: 2px solid red;
   width: 50%;
+  margin-left: 2rem;
+
+  @media (max-width: 600px) {
+    width: 80%;
+    margin: 0 auto;
+  }
 `;
 
 const HeaderText = styled.h2`
@@ -63,9 +68,16 @@ const Desc = styled.div`
 
 const ButtonContainer = styled.div`
   display: flex;
-  justify-content: space-around;
-  border: 2px solid red;
+  justify-content: flex-start;
   width: 35%;
+  gap: 1rem;
+
+  @media (max-width: 600px) {
+    margin: 0 auto;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
 `;
 
 const Button = styled(Link)`
@@ -146,7 +158,7 @@ export default function Header() {
           <Button to={`/anime/21519`}>Info</Button>
           <ExButton
             target="_blank"
-            href="https://github.com/donovangomez/seasonal-anichart/blob/main/pages/summer.js"
+            href="https://www.justwatch.com/us/movie/your-name"
           >
             Yeet
           </ExButton>
