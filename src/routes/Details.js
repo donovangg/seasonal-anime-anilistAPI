@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { marked } from "marked";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
+import CharacterContainer from "../components/CharacterContainer";
+import SeiyuuContainer from "../components/SeiyuuContainer";
 
 const Desc = styled.div`
   font-size: 1.15rem;
@@ -208,14 +210,22 @@ characters {
             character container
             {characters.map((character) => (
               <div key={character.id}>
-                <h2>
+                {/* <h2>
                   {character.node.name.last} {character.node.name.first}
                 </h2>
-                <img src={character.node.image.medium} />
+                <img src={character.node.image.medium} /> */}
+                <CharacterContainer
+                  lastName={character.node.name.last}
+                  firstName={character.node.name.first}
+                  image={character.node.image.medium}
+                />
                 {character.voiceActors.map((va) => (
                   <div>
-                    {" "}
-                    {va.name.last} {va.name.first} <img src={va.image.medium} />
+                    <SeiyuuContainer
+                      lastName={va.name.last}
+                      firstName={va.name.first}
+                      image={va.image.medium}
+                    />
                   </div>
                 ))}
               </div>
