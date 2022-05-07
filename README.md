@@ -6,8 +6,8 @@ are very good at these types of things so this ended up being my own practice on
 I'm using AniList's amazing GraphQL API to get all the data. There is a bit of a learning curve but there is a lot available.
 
 Todo:
---Finish the project lol
---Add Seiyuu
+-- Polish Styling
+-- Add Streaming Links
 
 # Getting Started with Create React App
 

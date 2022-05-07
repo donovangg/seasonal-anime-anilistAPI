@@ -23,8 +23,8 @@ function App() {
       <Header />
       <AnimeWrapper>
         <TrendingContainer />
-        <WinterContainer />
         <SpringContainer />
+        <WinterContainer />
         <SummerContainer />
       </AnimeWrapper>
     </div>
