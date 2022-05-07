@@ -62,6 +62,23 @@ const AnimeDescWrapper = styled.div`
   flex: 3;
 `;
 
+const CastCard = styled.div`
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 1rem;
+  width: 28rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  place-items: center;
+`;
+
+const CastContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+`;
+
 export default function Details() {
   const [anime, setAnime] = useState("");
   const [title, setTitle] = useState("");
@@ -206,10 +223,9 @@ characters {
               </AnimeDescWrapper>
             </AnimeInfo>
           </AnimeInfoWrapper>
-          <div>
-            character container
+          <CastContainer>
             {characters.map((character) => (
-              <div key={character.id}>
+              <CastCard key={character.id}>
                 {/* <h2>
                   {character.node.name.last} {character.node.name.first}
                 </h2>
@@ -228,9 +244,9 @@ characters {
                     />
                   </div>
                 ))}
-              </div>
+              </CastCard>
             ))}
-          </div>
+          </CastContainer>
         </>
       )}
     </div>
