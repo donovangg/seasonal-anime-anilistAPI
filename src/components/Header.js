@@ -86,14 +86,24 @@ const Button = styled(Link)`
   border: 2px solid #fff;
   padding: 0.55rem 2rem;
   text-decoration: none;
+  transition: 0.4s;
+
+  &:hover {
+    background-color: #7e22ce;
+  }
 `;
 
 const ExButton = styled.a`
-  background-color: transparent;
+  background-color: #a855f7;
   color: #fff;
   border: 2px solid #fff;
   padding: 0.55rem 2rem;
   text-decoration: none;
+  transition: 0.4s;
+
+  &:hover {
+    background-color: #7e22ce;
+  }
 `;
 
 export default function Header() {
@@ -160,7 +170,7 @@ export default function Header() {
             target="_blank"
             href="https://www.justwatch.com/us/movie/your-name"
           >
-            Yeet
+            Watch
           </ExButton>
         </ButtonContainer>
       </HeaderContent>

@@ -48,6 +48,11 @@ const AnimeInfo = styled.div`
   position: relative;
   z-index: 12;
   display: flex;
+
+  @media (max-width: 750px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 `;
 
 const AnimeTitleWrapper = styled.div`
@@ -56,6 +61,10 @@ const AnimeTitleWrapper = styled.div`
   place-items: center;
   position: relative;
   margin-top: -15rem;
+
+  @media (max-width: 750px) {
+    margin: 0;
+  }
 `;
 
 const AnimeDescWrapper = styled.div`
