@@ -9,10 +9,9 @@ Todo:
 -- Polish Styling
 -- Add Streaming Links
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+# Running the Project.
+I used Create React App [Create React App](https://github.com/facebook/create-react-app) to setup this project. All the default npm commands are there.
+Just make sure to to run `npm install` first! I've definitely forgotten while learning lol.
 ## Available Scripts
 
 In the project directory, you can run:
@@ -79,3 +78,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Create React App](https://github.com/facebook/create-react-app).
