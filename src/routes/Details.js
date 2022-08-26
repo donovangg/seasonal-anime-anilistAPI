@@ -86,6 +86,7 @@ const CastContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+  padding-bottom: 10rem;
 `;
 
 export default function Details() {
@@ -233,25 +234,20 @@ characters {
             </AnimeInfo>
           </AnimeInfoWrapper>
           <CastContainer>
-            {characters.map((character) => (
+            {/* splice to limit number of map through */}
+            {characters.slice(0, 8).map((character) => (
               <CastCard key={character.id}>
-                {/* <h2>
-                  {character.node.name.last} {character.node.name.first}
-                </h2>
-                <img src={character.node.image.medium} /> */}
                 <CharacterContainer
                   lastName={character.node.name.last}
                   firstName={character.node.name.first}
                   image={character.node.image.medium}
                 />
                 {character.voiceActors.map((va) => (
-                  <div>
-                    <SeiyuuContainer
-                      lastName={va.name.last}
-                      firstName={va.name.first}
-                      image={va.image.medium}
-                    />
-                  </div>
+                  <SeiyuuContainer
+                    lastName={va.name.last}
+                    firstName={va.name.first}
+                    image={va.image.medium}
+                  />
                 ))}
               </CastCard>
             ))}
