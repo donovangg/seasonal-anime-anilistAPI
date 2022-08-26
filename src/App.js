@@ -6,6 +6,7 @@ import TrendingContainer from "./components/TrendingContainer";
 import WinterContainer from "./components/WinterContainer";
 import SpringContainer from "./components/SpringContainer";
 import SummerContainer from "./components/SummerContainer";
+import FallContainer from "./components/FallContainer";
 import { Link } from "react-router-dom";
 
 const AnimeWrapper = styled.div`
@@ -23,9 +24,10 @@ function App() {
       <Header />
       <AnimeWrapper>
         <TrendingContainer />
+        <SummerContainer />
+        <FallContainer />
         <SpringContainer />
         <WinterContainer />
-        <SummerContainer />
       </AnimeWrapper>
     </div>
   );

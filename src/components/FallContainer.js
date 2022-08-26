@@ -40,7 +40,7 @@ const CardLink = styled(Link)`
 `;
 
 export default function SummerContainer() {
-  const [summerAnime, setSummerAnime] = useState([]);
+  const [fallAnime, setFallAnime] = useState([]);
 
   var query = `
         query ($page: Int, $perPage: Int, $search: String) {
@@ -49,7 +49,7 @@ export default function SummerContainer() {
                 total
                 perPage
               }
-              media(search: $search, type: ANIME, sort: POPULARITY_DESC, season: SUMMER, seasonYear: 2022, ) {
+              media(search: $search, type: ANIME, sort: POPULARITY_DESC, season: FALL, seasonYear: 2022, ) {
                 id
                 coverImage {
                   extraLarge
@@ -96,22 +96,22 @@ export default function SummerContainer() {
       }),
     };
 
-  const fetchSummer = async () => {
+  const fetchFall = async () => {
     const res = await fetch(url, options);
     const data = await res.json();
 
     console.log(data.data.Page.media);
-    setSummerAnime(data.data.Page.media);
+    setFallAnime(data.data.Page.media);
   };
 
   useState(() => {
-    fetchSummer();
+    fetchFall();
   }, []);
   return (
     <>
-      <HeaderText>Summer</HeaderText>
+      <HeaderText>Fall</HeaderText>
       <AnimeWrapper>
-        {summerAnime.map((ani) => (
+        {fallAnime.map((ani) => (
           <CardLink key={ani.id} to={`/anime/${ani.id}`}>
             <Card
               title={ani.title.english}
